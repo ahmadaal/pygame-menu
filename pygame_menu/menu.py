@@ -3226,7 +3226,7 @@ class Menu(Base):
         self._top._prev = [self._top._prev, current]
 
         # Select the first widget
-        self._current._select(0, 1, SELECT_OPEN, False, update_mouse_position=False)
+        self._top._current._select(0, 1, SELECT_OPEN, False, update_mouse_position=False)
 
         # Call event
         if menu._onbeforeopen is not None:
