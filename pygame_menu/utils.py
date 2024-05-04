@@ -206,16 +206,7 @@ def check_key_pressed_valid(event: EventType) -> bool:
     :param event: Key press event
     :return: ``True`` if a key is pressed
     """
-    # If the system detects that any key event has been pressed but
-    # there's not any key pressed then this method raises a KEYUP
-    # flag
-    bad_event = not (True in pygame.key.get_pressed())
-    if bad_event:
-        if 'test' in event.dict and event.dict['test']:
-            return True
-        ev = pygame.event.Event(pygame.KEYUP, {'key': event.key})
-        pygame.event.post(ev)
-    return not bad_event
+    return event.type == pygame.KEYDOWN
 
 
 def fill_gradient(
